@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <legend class="text-center border-bottom pb-2 mb-4 h1">Validation DB</legend>
+    <table class="mt-5 table table-hover table-bordered text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name </th>
+                <th scope="col">Email</th>
+                <th scope="col">Created @</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for one_friend in all_friends %}
+                <tr>
+                        <td>{{ one_friend.id }}</td>            
+                        <td>{{ one_friend.first_name }}</td>
+                        <td>{{ one_friend.last_name }}</td>
+                        <td>{{ one_friend.email }}</td>
+                        <td>{{one_friend.created_at.strftime('%B %-d %Y')}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="form-outline d-grid gap-2 col-6 mx-auto">
+        <a class="nav-item nav-link btn btn-outline-info mb-4" href="/users/new">Add User</a>
+    </div>
+</div>
+{% endblock content %}
